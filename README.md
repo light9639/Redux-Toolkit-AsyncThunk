@@ -27,7 +27,7 @@ npm install redux react-redux @reduxjs/toolkit
 yarn add redux react-redux @reduxjs/toolkit
 ```
 
-## ✒️ App.tsx, counterSlice.ts, store.ts, useTypedSelector.ts, Counter.tsx 수정 및 작성
+## ✒️ main.tsx, App.tsx, counterSlice.ts, store.ts, useTypedSelector.ts, Counter.tsx 수정 및 작성
 ### :zap: main.tsx
 - `react-redux`에서 `Provider` 함수 가져온 후 store 파일 import 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
 ```bash 
