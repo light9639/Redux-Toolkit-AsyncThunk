@@ -30,7 +30,7 @@ yarn add redux react-redux @reduxjs/toolkit
 ## ✒️ main.tsx, App.tsx 수정 및 작성
 ### :zap: main.tsx
 - `react-redux`에서 `Provider` 함수 가져온 후 store 파일 import 후 <Provider store={store}></Provider>으로 <App />을 둘러싸면 Redux-Toolkit 사용준비 완료.
-```bash 
+```js
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
@@ -49,7 +49,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 
 ### :zap: App.tsx
 - Counter 컴포넌트를 import 후 사용.
-```bash 
+```js
 import React from './assets/react.svg'
 import Counter from "./components/Counter";
 import './App.css'
@@ -85,7 +85,7 @@ export default function App(): JSX.Element {
 ## ✒️ counterSlice.ts, store.ts, useTypedSelector.ts, Counter.tsx 수정 및 작성
 ### :zap: counterSlice.ts
 - createAsyncThunk를 fetch 자바스크립트 함수를 사용하여 data값을 return.
-```bash 
+```js
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 // 데이터 가져오기
@@ -153,7 +153,7 @@ export const { up, set } = counterSlice.actions;
 ### :zap: store.ts
 - RootState는 useSelector 사용시 타입으로 사용하기 위해서 생성.
 - AppDispatch는 useDispatch를 좀 더 명확하게 사용하기 위해서 생성.
-```bash 
+```js
 import { configureStore } from '@reduxjs/toolkit';
 import counterSlice from './counterSlice';
 
@@ -175,7 +175,7 @@ export default store;
 - useDispatch와 useSelector의 typed versions를 만드는 것이 사용하는데 더 좋다.
 - useSelector에서 state 인자에 RootState를 import해서 타입으로 넣어줬었는데, 이걸 반복하는 것에서 벗어날 수 있다.
 - useDispatch에서 기본적인 Dispatch 타입은 thunks에 대하여 알지 못하기에 thunk middleware 타입을 포함하고 있는 AppDispatch라는 커스텀 타입을 useDispatch에 사용할 필요가 있다. 따라서 사전에 useDispatch에 AppDispatch를 적용시켜놓으면 사용할 때마다 AppDispatch를 import하지 않아도 된다.
-```bash 
+```js
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "../redux/store";
@@ -187,7 +187,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ### :zap: Counter.tsx
 - useTypedSelector.ts에서 useAppDispatch, useAppSelector import 후 사용.
 - counterSlice에서 asyncUpFetch, up, set 함수 import 후 사용.
-```bash 
+```js
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/useTypedSelector';
 import { asyncUpFetch, up, set } from '../redux/counterSlice';
