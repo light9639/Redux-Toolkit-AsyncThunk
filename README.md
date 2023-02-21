@@ -1,4 +1,4 @@
-# :zap: Redux-Toolkit의 AsyncThunk를 이용한 숫자 증가 예제입니다.
+# 🧪 Redux-Toolkit의 AsyncThunk를 이용한 숫자 증가 예제입니다.
 :octocat: https://light9639.github.io/Redux-Toolkit-AsyncThunk/
 
 ![light9639 github io_Redux-Toolkit-AsyncThunk_](https://user-images.githubusercontent.com/95972251/212830875-5329cfa2-65d8-4247-a9a7-bfcc35554f05.png)
